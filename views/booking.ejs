@@ -1,0 +1,40 @@
+<%- include('./common/header.ejs') %>
+    <%- include('./common/nav.ejs') %>
+        <div class="booking-container">
+            <div class="wrapper">
+                <div class="title"><span>Book an appointment with us!</span></div>
+                <form action="/bookings" method="POST">
+                    <% for( let index=0; index < availableDates.length; index++ ) { %>
+                        <div class="row">
+                            <label>
+                                <%= availableDates[index].date%> (<%= availableDates[index].day%>)
+                            </label>
+                            <div class="row">
+                                <% for( let j=0; j < availableTime.length; j++ ) { %>
+                                    <label class="time-label">
+                                        <%= availableTime[j] %>
+                                    </label>
+                                    <input class="form-checkbox" value="<%=`${availableDates[index].date};${j}`%>" type="checkbox" name="datetime"/>
+                                    <% } %>
+                            </div>
+
+
+                        </div>
+                        <% } %>
+                            <div class="row button">
+                                <input class="form-input" type="submit" value="Book" disabled id="book-btn"/>
+                            </div>
+                </form>
+            </div>
+        </div>
+
+        <%- include('./common/footer.ejs') %>
+
+<script type="text/javascript">
+    $('.form-checkbox').on('change', function() {
+        $('.form-checkbox').not(this).prop('checked', false);
+        const checked = $(this).prop('checked');
+        if (checked) $('#book-btn').removeAttr('disabled');
+        else $('#book-btn').attr('disabled','disabled');
+    });
+</script>

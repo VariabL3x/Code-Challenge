@@ -1,0 +1,32 @@
+<%- include('./common/header.ejs') %>
+    <% if (messages.error) { %>
+        <div class="alert danger">
+            <span class="alert-text">
+                <%= messages.error %>
+            </span>
+            <span class="alert-close" onclick="this.parentElement.style.display = 'none'">&times;</span>
+        </div>
+    <% } %>
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Login</span></div>
+            <form action="/login" method="POST">
+                <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input class="form-input" type="email" placeholder="Email" required name="email" />
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input class="form-input" type="password" placeholder="Password" required name="password" />
+                </div>
+                <div class="row button">
+                    <input class="form-input" type="submit" value="Login" />
+                </div>
+                <div class="signup-link">
+                    Not a member? <a href="/register">Signup now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include('./common/footer.ejs') %>

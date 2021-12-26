@@ -1,0 +1,29 @@
+<%- include('./common/header.ejs') %>
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Register</span></div>
+            <form action="/register" method="POST">
+                <div class="row">
+                    <i class="fas fa-address-card"></i>
+                    <input class="form-input" type="text" placeholder="Username" required name="username" />
+                </div>
+                <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input class="form-input" type="email" placeholder="Email" required name="email" />
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input class="form-input" type="password" placeholder="Password" required name="password" />
+                </div>
+                <div class="row button">
+                    <input class="form-input" type="submit" value="Register" />
+                </div>
+                <div class="signup-link">
+                    Already a member? <a href="/login">Login now!</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include('./common/footer.ejs') %>
